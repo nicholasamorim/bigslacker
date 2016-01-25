@@ -1,6 +1,8 @@
 bigslacker - Slack big while having a bot
 ==========================================
 
+I would like to *thank* the [University of Tartu](http://www.ut.ee/et) and the [BIIT Research Group](http://biit.cs.ut.ee/) for allowing me to publish this as an open-source library.
+
 Overview
 ---------
 
