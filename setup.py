@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="bigslacker",
-    version='0.1',
+    version='0.1.1',
     description="Slack RTM Client",
     author="Nicholas Amorim",
     author_email="nicholas@alienretro.com",
