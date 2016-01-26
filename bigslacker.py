@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import time
+import json
 from slackclient import SlackClient
 
 
@@ -107,9 +108,16 @@ class BigSlacker(object):
         return self.client.rtm_send_message(channel, text)
 
     def api_call(self, *args, **kwargs):
-        """Exposes Slack Web API interface.
+        """Exposes Slack Web API interface. We automatically parse
+        the JSON returned by the Slack client. However, if you want
+        to deactivate this, simply pass raw_response=True.
         """
-        return self.client.api_call(*args, **kwargs)
+        raw_response = kwargs.pop('raw_response', False)
+        response = self.client.api_call(*args, **kwargs)
+        if not raw_response:
+            response = json.loads(response)
+            
+        return response
 
     def _callback_send(self, messages):
         """Convenience function that deals with the return values
